@@ -9,10 +9,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-color: #0a0a0a;
-      --text-color: #f4f4f4;
-      --accent-color: #facc15;
-      --font-family: 'Orbitron', sans-serif;
+      --bg-color: #1e1e1e;
+      --text-color: #d4d4d4;
+      --accent-color: #4ec9b0;
+      --font-family: 'Courier New', monospace;
+      --bg-light: #2d2d2d;
+      --bg-dark: #151515;
+      --border-color: #3c3c3c;
     }
 
     * {
@@ -27,6 +30,10 @@
       color: var(--text-color);
       font-family: var(--font-family);
       line-height: 1.6;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
     }
 
     header {
@@ -35,7 +42,7 @@
     }
 
     header h1 {
-      font-size: 3rem;
+      font-size: 2rem;
       color: var(--accent-color);
     }
 
@@ -50,6 +57,7 @@
       text-decoration: none;
       color: var(--text-color);
       font-size: 1rem;
+      padding: 0.5rem;
       transition: color 0.3s;
     }
 
@@ -57,10 +65,40 @@
       color: var(--accent-color);
     }
 
+    .console-text {
+      text-align: center;
+      font-family: 'Courier New', monospace;
+      color: var(--accent-color);
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 3s steps(40, end) forwards;
+    }
+
+    @keyframes typing {
+      to {
+        width: 100%;
+      }
+    }
+
+    header > img {
+      width: 10%;
+      height: auto;
+    }
+
+    main div {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
     section {
-      max-width: 800px;
+      background-color: var(--bg-light);
+      max-width: 60%;
       margin: auto;
+      margin-bottom: 5em;
       padding: 4rem 2rem;
+      border-radius: 2em;
+      border: 1px solid var(--border-color);
       opacity: 0;
       transform: translateY(50px);
       transition: all 1s ease-out;
@@ -75,6 +113,27 @@
       color: var(--accent-color);
       font-size: 2rem;
       margin-bottom: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+
+    th, td {
+      border: 1px solid #444;
+      padding: 0.75rem;
+      text-align: left;
+    }
+
+    th {
+      background-color: #2d2d2d;
+      color: var(--accent-color);
+    }
+
+    td {
+      background-color: #1e1e1e;
     }
 
     footer {
@@ -93,7 +152,7 @@
     form input,
     form textarea {
       padding: 0.75rem;
-      background: #1a1a1a;
+      background: #2d2d2d;
       border: 1px solid #444;
       color: white;
       font-size: 1rem;
@@ -110,7 +169,7 @@
     }
 
     form button:hover {
-      background: #ffe95a;
+      background: #5eead4;
     }
 
     .contact-links {
@@ -135,49 +194,485 @@
         gap: 1rem;
       }
     }
+
+    header > div:nth-of-type(1) {
+      display: grid;
+      grid-template-columns: 20% 35% 45%;
+      margin-bottom: 0;
+    }
+
+    header > img {
+      width: 100%;
+      margin: 0;
+    }
+
+    .terminal {
+      background-color: #000000dd;
+      color: var(--accent-color);
+      font-family: var(--font-family);
+      padding: 1rem;
+      border-radius: 8px;
+      width: 80%;
+      height: 41vw;
+      box-shadow: 0 0 15px #4ec9b0aa;
+      margin-top: 1rem;
+      margin-left: 10%;
+      margin-right: 10%;
+      text-align: left;
+      min-height: 6rem;
+    }
+
+    .terminal pre {
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-size: 1rem;
+      line-height: 0.9;
+    }
+
+    #cv-container {
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 100px;
+    }
+
+    .cv-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background-color: var(--accent-color);
+      color: black;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .cv-button:hover {
+      background-color: #5eead4;
+    }
+
+    .timeline-frise {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .timeline-circle {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--accent-color);
+      cursor: pointer;
+      transition: transform 0.3s;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .timeline-circle:hover {
+      transform: scale(1.1);
+    }
+
+    .timeline-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .timeline-details {
+      display: none;
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      max-width: 80%;
+      margin: 1rem auto;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .timeline-details h3 {
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-details p {
+      color: var(--text-color);
+    }
+
+    .timeline-details a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .skill-card {
+      background-color: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      color: var(--text-color);
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s, color 0.3s;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      color: var(--accent-color);
+    }
+
+    .skill-card p {
+      font-size: 0.95rem;
+      color: #bbb;
+      transition: color 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 14px rgba(78, 201, 176, 0.4);
+    }
+
+    .skill-card:hover p {
+      color: #e0e0e0;
+    }
+      
+    .accordion-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .accordion-item {
+      border: 1px solid var(--border-color);
+      border-radius: 0.75rem;
+      background-color: var(--bg-dark);
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .accordion-header {
+      width: 100%;
+      text-align: left;
+      padding: 1rem 1.5rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      background-color: var(--bg-light);
+      color: var(--accent-color);
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .accordion-header:hover {
+      background-color: #2a2a2a;
+    }
+
+    .accordion-content {
+      padding: 1rem 1.5rem;
+      display: none;
+      flex-direction: column;
+      gap: 0.5rem;
+      color: var(--text-color);
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .accordion-content img {
+      width: 100%;
+      border-radius: 0.5rem;
+      margin: 0.5rem 0;
+    }
+
+    .project-demo {
+      border: 1px solid var(--border-color);
+    }
+
+    .project-link {
+      margin-top: 0.5rem;
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: black;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .project-link:hover {
+      background-color: #5eead4;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>Mon Portfolio</h1>
-    <nav>
-      <a href="#accueil">Accueil</a>
-      <a href="#apropos">À propos</a>
-      <a href="#competences">Compétences</a>
-      <a href="#projets">Projets</a>
-      <a href="#experiences">Expériences</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div>
+      <h1>Lilian Chamaille</h1>
+      <div></div>
+      <nav>
+        <a href="#apropos">À propos</a>
+        <a href="#formations">Formations</a>
+        <a href="#competences">Compétences</a>
+        <a href="#projets">Projets</a>
+        <a href="#experiences">Expériences</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="terminal">
+      <pre id="terminal-text"></pre>
+    </div>
   </header>
 
   <main>
-    <section id="accueil">
-      <h2>Bienvenue</h2>
-      <p>Je suis Lilian Chamaille, étudiant en BUT Informatique à Lannion. Passionné par l'informatique sous toutes ses formes.</p>
-    </section>
+
+    <div class="cv-bloc">
+      <p class="console-text">SELECT * FROM Portfolio WHERE author = 'Lilian';</p>
+      <div id="cv-container">
+        <a href="cv.pdf" download class="cv-button">Télécharger mon CV</a>
+      </div>
+    </div>
 
     <section id="apropos">
-      <h2>À propos de moi</h2>
-      <p>Je suis ...</p>
+      <h2>À propos;</h2>
+      <p>
+        Bonjour/Bonsoir, je suis Lilian Chamaille, étudiant en 1re année de BUT Informatique à l'IUT de Lannion.
+      </p>
+      <br>
+      <p>
+        Futur étudiant en alternance, je suis passionné par l'informatique sous tous ces aspects et je souhaite accumuler un maximum d'expérience. Dans ce but, je compte terminer mon BUT en alternance pour ensuite rejoindre l'ENSSAT toujours en alternance.
+      </p>
+      <br>
+      <p>
+        Je suis quelqu'un de motivé, rigoureux et j’aime relever les défis qui me font face.
+      </p>
+    </section>
+
+    <section id="formations">
+      <h2>Formations;</h2>
+      <div class="timeline-frise">
+        <div class="timeline-circle" onclick="toggleDetails('iut')">
+          <img src="images/iut-lannion.jpg" alt="IUT Lannion">
+        </div>
+        <div class="timeline-circle" onclick="toggleDetails('ubo')">
+          <img src="images/ubo-brest.jpg" alt="UBO Brest">
+        </div>
+        <div class="timeline-circle" onclick="toggleDetails('lycee')">
+          <img src="images/lycee-kreisker.jpg" alt="Lycée Exemple">
+        </div>
+      </div>
+
+      <div id="iut" class="timeline-details">
+        <h3>BUT Informatique – IUT de Lannion</h3>
+        <p>De 2024 à aujourd’hui. Formation complète en développement, réseaux, base de données, gestion de projets et Algorithmique. Nombreux projets pratiques et travail en équipe. Cette formation permet d'introduire les étudiants aux divers aspects de l'informatique et ainsi apprendre diverses technologies permettant d'atteindre le poste de Technicien</p>
+        <br>
+        <p><a href="https://iut-lannion.univ-rennes.fr/">IUT de Lannion</a> - <a href="https://iut-lannion.univ-rennes.fr/informatique">Pour plus d'informations sur la formation</a></p>
+      </div>
+
+      <div id="ubo" class="timeline-details">
+        <h3>Licence de Biologie – UBO de Brest</h3>
+        <p>De 2020 à 2023. Formation de Biologie des Organismes, des Populations et des Ecosystèmes. Il s'agit d'une formation plutôt théorique mais qui contient diverses aspects pratiques tels que des dissections ou des études sur le terrain.</p>
+        <br>
+        <p><a href="https://www.univ-brest.fr/fr">UBO</a> - <a href="https://formations.univ-brest.fr/fr/index/sciences-technologies-sante-STS/licence-XA/licence-mention-sciences-de-la-vie-INR9859P/parcours-biologie-des-organismes-et-des-populations-environnement-INR98AKX.html">Pour plus d'informations sur la formation</a></p>
+      </div>
+
+      <div id="lycee" class="timeline-details">
+        <h3>Baccalauréat Général Scientifique – Lycée Notre Dame du Kreisker</h3>
+        <p>De 2017 à 2020. Spécialités : Sciences de la Vie et de la Terre. Approche théorique et pratique des sciences telles que les mathématiques, la physique, la chimie et centré autours de la biologie ainsi que de la géologie.</p>
+        <br>
+        <p><a href="https://www.lekreisker.fr/accueil-lycee-notre-dame-du-kreisker">Lycée Notre Dame du Kreisker</a></p>
+      </div>
     </section>
 
     <section id="competences">
-      <h2>Compétences</h2>
-      <p>Présentation des 6 compétences de l'IUT avec description.</p>
+      <h2>Compétences;</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Développer des applications</h3>
+          <p>Créer des programmes simples avec des interfaces basiques et des interactions utilisateur-fichier.</p>
+          <br>
+          <p><u>Langage C :</u> implémentation de conceptions simples à partir de spécifications</p>
+          <p><u>Java :</u> conception d’applications avec UML, réalisation d’interfaces graphiques (IHM)</p>
+          <p><u>Tests :</u> évaluation des applications par rapport aux spécifications</p>
+          <p><u>Méthodologie :</u> essais, débogage, amélioration continue de la fiabilité</p>
+        </div>
+        <div class="skill-card">
+          <h3>Algorithmes</h3>
+          <p>Analyser un problème, concevoir une solution structurée et l'implémenter efficacement.</p>
+          <br>
+          <p><u>Analyse :</u> découpage méthodique de problèmes en éléments simples (C, Python)</p>
+          <p><u>Comparaison d’algorithmes :</u> étude d’efficacité (tris, recherche…)</p>
+          <p><u>Structures de données :</u> utilisation adaptée selon les besoins (listes, tableaux…)</p>
+          <p><u>Outils mathématiques :</u> formalisation et application (notamment en Python)</p>
+        </div>
+        <div class="skill-card">
+          <h3>Poste de travail</h3>
+          <p>Installer, configurer un système d’exploitation et les outils nécessaires au développement.</p>
+          <br>
+          <p><u>Composants système :</u> identification des éléments matériels et logiciels (Bash, PHP)</p>
+          <p><u>Environnement linux :</u> utilisation des commandes et outils de base (Bash)</p>
+          <p><u>Installation et configuration :</u> systèmes d’exploitation et outils de développement</p>
+          <p><u>Réseaux :</u> découverte et mise en place de réseaux simples avec Packet Tracer</p>
+        </div>
+        <div class="skill-card">
+          <h3>Base de données</h3>
+          <p>Modéliser, concevoir et mettre en œuvre une base de données à partir des besoins exprimés.</p>
+          <br>
+          <p><u>Conception :</u> modélisation à partir d’un cahier des charges (diagramme de classes, dépendances, normalisation)</p>
+          <p><u>Implémentation :</u> passage du modèle conceptuel au modèle relationnel (TutorialD, PostgreSQL)</p>
+          <p><u>Requêtes SQL :</u> mise à jour, interrogation et analyse des données (sélection, jointures, agrégations…)</p>
+          <p><u>Visualisation :</u> interprétation des données sous forme exploitable</p>
+        </div>
+        <div class="skill-card">
+          <h3>Besoins métiers</h3>
+          <p>Analyser les attentes d’un client ou utilisateur pour proposer des solutions numériques pertinentes.</p>
+          <br>
+          <p><u>Analyse des besoins :</u> identification des objectifs, cibles, fonctionnalités et contraintes techniques</p>
+          <p><u>Conception web :</u> arborescence, charte graphique, maquette et développement de site adapté</p>
+          <p><u>Gestion de projet :</u> utilisation d’outils collaboratifs, respect des délais et des livrables</p>
+          <p><u>Travail en contexte client :</u> compréhension du cycle de développement, communication avec les parties prenantes</p>
+        </div>
+        <div class="skill-card">
+          <h3>Travail en équipe</h3>
+          <p>Reconnaître son rôle dans une équipe, collaborer efficacement et communiquer ses idées.</p>
+          <br>
+          <p><u>Organisation :</u> répartition des tâches et gestion de l’équipe avec des outils collaboratifs</p>
+          <p><u>Communication :</u> présentation orale individuelle et en groupe, gestion du temps, outils en ligne</p>
+          <p><u>Recherche & synthèse :</u> analyse d’un sujet, veille documentaire, collecte et tri de l’information</p>
+          <p><u>Esprit d’équipe :</u> compréhension des rôles, fonctions et statuts dans une équipe pluridisciplinaire</p>
+        </div>
+      </div>
     </section>
 
     <section id="projets">
-      <h2>Mes projets</h2>
-      <p>Liste de projets avec description, liens et images.</p>
+      <h2>Projets;</h2>
+      <div class="accordion-container">
+      
+        <div class="accordion-item">
+          <button class="accordion-header">Snake en C</button>
+          <div class="accordion-content">
+            <p><strong>Objectif :</strong> Réaliser un snake dans le termninal et le rendre totalement autonome par la suite.</p>
+            <p><strong>Technologies :</strong> C</p>
+            <p><strong>Difficultés :</strong> Trouver un algorithme correct du plus court chemin, éviter les colisions entre 2 serpents</p>
+            <p><strong>Compétence reliée :</strong> Développer des applications informatiques simples</p>
+            <img src="images/snake.png" alt="Démo Snake" class="project-demo" />
+            <a href="https://github.com/LilianCML/snake" target="_blank" class="project-link">Voir le code</a>
+          </div>
+        </div>
+      
+        <div class="accordion-item">
+          <button class="accordion-header">Site vitrine des Jeux Olympiques de Paris 2024</button>
+          <div class="accordion-content">
+            <p><strong>Objectif :</strong> Réaliser un site vitrine pour les Jeux Olympiques de Paris 2024 à partir du recueil des besoins du client</p>
+            <p><strong>Technologies :</strong> HTML/CSS</p>
+            <p><strong>Difficultés :</strong> Réaliser une maquette correcte, réussir à mettre en commun tous nos codes CSS en un seul fichier</p>
+            <p><strong>Compétence reliée :</strong> Identifier les besoins métiers des clients et des utilisateurs</p>
+            <img src="images/siteJO.png" alt="Démo Site JO" class="project-demo" />
+            <a href="https://github.com/LilianCML/siteJO2024" target="_blank" class="project-link">Voir le code</a>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">Machine Learning en Python</button>
+          <div class="accordion-content">
+            <p><strong>Objectif :</strong> Mettre en place les algorithmes de Machine Learning KNN et K-means puis les appliquer à différentes données comme des images</p>
+            <p><strong>Technologies :</strong> Python</p>
+            <p><strong>Difficultés :</strong> Appréhender les algorithmesn, apprendre à coder en Python et trouver des données intéressantes pour les tests</p>
+            <p><strong>Compétence reliée :</strong> Appréhender et construire des algorithmes</p>
+            <img src="images/machineLearning.png" alt="Démo Machine Learning" class="project-demo" />
+            <a href="https://github.com/LilianCML/machineLearning" target="_blank" class="project-link">Voir le code</a>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">Base de données en TutorialD</button>
+          <div class="accordion-content">
+            <p><strong>Objectif :</strong> Réaliser d'un schéma UML à partir des besoins du client à partir d'une description de l'évènement puis traduction en base de donnée.</p>
+            <p><strong>Technologies :</strong> TutorialD</p>
+            <p><strong>Difficultés :</strong> Appréhender correctement le sujet et trouver une représentation UML correcte</p>
+            <p><strong>Compétence reliée :</strong> Concevoir et mettre en place une base de données à partir d'un cahier des charges client</p>
+            <img src="images/BDD.jpg" alt="Démo Base de données" class="project-demo" />
+            <a href="https://github.com/LilianCML/BDD" target="_blank" class="project-link">Voir le code</a>
+          </div>
+        </div>
+      
+        <div class="accordion-item">
+          <button class="accordion-header">Développement d'une application en java IHM</button>
+          <div class="accordion-content">
+            <p><strong>Objectif :</strong> Réaliser une application à l'aide de javafx à partir du cahier des charges du client (ici l'application Ella'dance)</p>
+            <p><strong>Technologies :</strong> Javafx, Scene Builder</p>
+            <p><strong>Difficultés :</strong> Mettre en place l'UML à partir du cahier des charges</p>
+            <p><strong>Compétence reliée :</strong> Développer des applications informatiques simples</p>
+            <img src="images/IHM.png" alt="Démo IHM" class="project-demo" />
+            <a href="https://github.com/LilianCML/IHM" target="_blank" class="project-link">Voir le code</a>
+          </div>
+        </div>
+
+        <!-- Je peux ajouter des projets bebou -->
+      
+      </div>
     </section>
 
     <section id="experiences">
-      <h2>Expériences</h2>
-      <p>Petits boulots, stages, alternance, etc.</p>
+      <h2>Experiences;</h2>
+      <div class="timeline-frise">
+        <div class="timeline-circle" onclick="toggleDetails('exp1')">
+          <img src="images/action.jpeg" alt="Action" />
+        </div>
+        <div class="timeline-circle" onclick="toggleDetails('exp2')">
+          <img src="images/leclerc.JPG" alt="Leclerc" />
+        </div>
+        <div class="timeline-circle" onclick="toggleDetails('exp3')">
+          <img src="images/mcdonald.png" alt="McDonald" />
+        </div>
+      </div>
+
+      <div id="exp1" class="timeline-details">
+        <h3>Employé polyvalent – Action, Cissac-Médoc</h3>
+        <p><strong>Période :</strong> Avril 2024 – Juin 2024</p>
+        <p>Réassort des rayons, mise en place des promotions, entretien de la surface de vente.</p>
+        <p><strong>Compétences :</strong> Travail d’équipe, autonomie, efficacité</p>
+      </div>
+
+      <div id="exp2" class="timeline-details">
+        <h3>Hôte de caisse – Leclerc, Brest</h3>
+        <p><strong>Période :</strong> Septembre 2022 – Janvier 2023</p>
+        <p>Encaissement des clients, gestion des demandes en caisse, relation clientèle.</p>
+        <p><strong>Compétences :</strong> Communication, autonomie</p>
+      </div>
+
+      <div id="exp3" class="timeline-details">
+        <h3>Équipier polyvalent – McDonald’s, Mantes-la-Ville</h3>
+        <p><strong>Période :</strong> Été 2022</p>
+        <p>Préparation des commandes, accueil client, entretien de la salle.</p>
+        <p><strong>Compétences :</strong> Gestion du stress, communication, travail d’équipe</p>
+      </div>
     </section>
 
     <section id="contact">
-      <h2>Contact</h2>
+      <h2>Contact;</h2>
       <form action="https://formspree.io/f/xdkglgjk" method="POST">
         <input type="text" name="nom" placeholder="Votre nom" required>
         <input type="email" name="email" placeholder="Votre email" required>
@@ -186,9 +681,11 @@
         <button type="submit">Envoyer</button>
       </form>
       <div class="contact-links">
-        <a href="https://linkedin.com/in/ton-profil" target="_blank">LinkedIn</a>
-        <a href="https://github.com/ton-profil" target="_blank">GitHub</a>
-        <a href="cv.pdf" download>Télécharger mon CV</a>
+        <a href="#" onclick="showContactInfo(event, 'email')">E-mail</a>
+        <a href="#" onclick="showContactInfo(event, 'phone')">Téléphone</a>
+        <a href="https://www.linkedin.com/in/lilian-chamaille-930508338/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/LilianCML" target="_blank">GitHub</a>
+        <div id="contact-info" style="margin-top: 1rem; color: var(--accent-color); font-weight: bold;"></div>
       </div>
     </section>
   </main>
@@ -199,13 +696,11 @@
 
   <script>
     const sections = document.querySelectorAll('section');
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-        }
-        else {
+        } else {
           entry.target.classList.remove('visible');
         }
       });
@@ -215,6 +710,125 @@
 
     sections.forEach(section => {
       observer.observe(section);
+    });
+
+    const lines = [
+      "                                                              +**+*%#+",
+      "                                                          +**#%@@@@%%%%%#*+++",
+      "                                                       +*%%@@@@@@@@@@@%%%%%@%%**+++",
+      "                                                  +*%%%%%@@@@@%%@@@@@%%@@%@%%@@@@%%+",
+      "                                             *%%%@@@@@%@%%@@%@@@@%%@@@@%%%%@@%@@@@@@",
+      "                                           ++*%@%%@@%@@@@@@@@@@@@@@@@@@%%%@@@@%@@@@@%",
+      "                                          ++*#%@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@%*",
+      "                                           ++%@@@@@@@@@@@@@@@@@@%%%%%%%%%%@@@@@@@@@@%@+",
+      "                                            ++%@@@@@@@@@@%%##***++=====++*###%%%%%@@@@@*=",
+      "                                             +*@@@@@@%#**++=====-----------==+*****%%@@@=",
+      "                                             ++#@@@%#*++=====--------------------==+#@@@*",
+      "                                              +#@@#**+=====------------------:-----=+#@@@",
+      "                                              +#%%*++=====----------------:-:::::---=+#@@=",
+      "                                              +#%#*+++=======-=----------------::----+*%@",
+      "                                               #%*+++========-------------------::---=*#%",
+      "                                               *#+++++=====---------------::::--------+#%",
+      "                                               +*+++++=====---------------:-----------=*%",
+      "                                               =+++++++++===--------------==++***+=----+#",
+      "                                               =+*##***#%%%%*+====---=+#%%#+==----=++---#+",
+      "                                               =***++++*****#**+=-=-+++++**++++==----=--*#",
+      "                                               =+***#*******##**=----=+*#***++++++==----++",
+      "                                               =+**##%%%%%+**##*+=--=++*#*%@*%*##*+==---==",
+      "                                               =+*####*##****##*+=-===++***#*++*++===------:",
+      "                                               =++**********#***+=--===++**++====--------::",
+      "                                               =+++++***********+=-=======+==------------:=",
+      "                                               =++++++***+++****+======---=======---------%",
+      "                                               =+++++++++++*****+=======-=====-----------%",
+      "                                               =+++++++++++*#**+=======+======----------=",
+      "                                               =++++++++++*#**+===----===+====----------=",
+      "                                               =+++++++++++*#*#++====+========----------=",
+      "                                               =+***+++++++***##**+++++===-=====--------=",
+      "                                               +++******++****#**+**+++===========------+",
+      "                                                ++***+**###**###*++*****+++**#*=-------=%",
+      "                                                 +*****+**###***++++=+**++*===++-------+",
+      "                                                  +****++**###########*+*+-=-===----+-=",
+      "                                                   +****+****#**++*++=++=------=---===++",
+      "                                                    +*******#**+++++=====---------=======+",
+      "                                                     +*************++++=---------=+=--=:::-+",
+      "                                                    *+++*##****+++++======------===----=-:::::+",
+      "                                                *++++=++*%##**++++=====-=--=+=+*=--::-=-::::::=",
+      "                                               *++++=====*#%%#**++=+=======*+***---:::-==:::::::-=",
+      "                                         *++===++==--=++#%%#*+++++++=+*##*#=---:::--+=-::::::::---=",
+      "                                     *++========++==--=+++**#%%#******##%##+----------*+-:::::::::----=",
+      "                                  *+=============++=---+===+**+++*####%%#+=-----------=*+--:::::::-:--:::-=",
+      "                               *+==================--+=--==**+++++======-------------+=*=-::.::::-:---:::---=",
+      "                            #*+===================--+=----=+**+++==========--------=+:-*=-::.::::-:--:::::-----=",
+      "                           #+===========+---=====--=----:--=***+===========-----=++:.:+*=-::...::-:---::.::--------+",
+      "                          #============+=---====---+===-::---+**+===========-=+*+:...-+*=-::..::--:---:::::-----------+",
+      "                        #*=============+---=====--=+===-::-----+*++++++++++++=::....:-+*=-::.::::-:--::.::::-----::-----",
+      "                       #*=============+=---===----+-=-=-::::::----=+***==-:::::..::::-+*+-:..:::--:--::.::::----:::-----",
+      "                       #========---===+---===----=+==---::::::::::::::.:::.:::::-:::::=*=-:..:::--:--::.::::---:::-----",
+      "                      #=========--===+=---===--:----=---::::::::::::::::::::-----::::-+*==:...::--:--::.::::--:::---::-:",
+      "                     #=========-=====+----==----==------:::::::::::.::::::--=-:::::::-=*=-:..:::--:--::.::::---::---::-:"
+    ];
+
+
+    const terminal = document.getElementById("terminal-text");
+
+    let line = 0;
+    let char = 0;
+
+    function typeLine() {
+      if (line < lines.length) {
+        if (char < lines[line].length) {
+          terminal.textContent += lines[line][char];
+          char++;
+          setTimeout(typeLine, 0);
+        } else {
+          terminal.textContent += "\n";
+          line++;
+          char = 0;
+          setTimeout(typeLine, 0);
+        }
+      }
+    }
+
+    typeLine();
+
+    function showContactInfo(event, type) {
+      event.preventDefault();
+      const info = document.getElementById('contact-info');
+      if (type === 'email') {
+        info.textContent = 'lilianchamaille@gmail.com';
+      } else if (type === 'phone') {
+        info.textContent = '+33 6 16 13 35 82';
+      }
+    }
+
+    function toggleDetails(id) {
+      const all = document.querySelectorAll('.timeline-details');
+      all.forEach(el => {
+        if (el.id !== id) {
+          el.style.display = 'none';
+        }
+      });
+    
+      const el = document.getElementById(id);
+      if (el.style.display === 'block') {
+        el.style.display = 'none';
+      } else {
+        el.style.display = 'block';
+      }
+    }
+
+    document.querySelectorAll(".accordion-header").forEach(button => {
+      button.addEventListener("click", () => {
+        const content = button.nextElementSibling;
+      
+        // Fermer les autres
+        document.querySelectorAll(".accordion-content").forEach(c => {
+          if (c !== content) c.style.display = "none";
+        });
+      
+        // Toggle affichage
+        content.style.display = content.style.display === "block" ? "none" : "block";
+      });
     });
   </script>
 </body>
